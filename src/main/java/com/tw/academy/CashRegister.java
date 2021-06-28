@@ -10,10 +10,11 @@ public class CashRegister {
 	}
 
 	void process(Purchase purchase) throws IllegalArgumentException {
-		String purchaseInfo = purchase.asString();
-		if (purchase.asString() == null || purchase.asString().isEmpty())
-			throw new IllegalArgumentException("Purchase is empty");
-		printer.print(purchaseInfo);
 		notifier.notice();
+		String purchaseInfo = purchase.asString();
+		if (purchase.asString() == null || purchase.asString().isEmpty()) {
+			throw new IllegalArgumentException("Purchase is empty");
+		}
+		printer.print(purchaseInfo);
 	}
 }
